@@ -1,0 +1,20 @@
+# Define an array with 10 last names
+last_names = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Wilson"]
+
+# Function to display names in normal order
+def display_names(names):
+    for name in names:
+        print(name)
+
+# Function to display names in reverse order
+def display_names_reverse(names):
+    for name in reversed(names):
+        print(name)
+
+# Display names in normal order
+print("Names in normal order:")
+display_names(last_names)
+
+# Display names in reverse order
+print("\nNames in reverse order:")
+display_names_reverse(last_names)

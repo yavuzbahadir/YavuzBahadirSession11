@@ -1,0 +1,51 @@
+# Define arrays for last names and corresponding salaries
+employee_names = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Wilson"]
+salaries = [55000, 62000, 48000, 51000, 69000, 47000, 58000, 62000, 51000, 60000]
+
+# Function to display names and salaries
+def display_employees(names, salaries):
+    for name, salary in zip(names, salaries):
+        print(f"{name}: ${salary}")
+
+# Function to display names in reverse order
+def display_employees_reverse(names, salaries):
+    for name, salary in zip(reversed(names), reversed(salaries)):
+        print(f"{name}: ${salary}")
+
+# Function to find employee with the highest salary
+def highest_salary(names, salaries):
+    max_salary = max(salaries)
+    max_index = salaries.index(max_salary)
+    print(f"Highest Salary: {names[max_index]} with ${max_salary}")
+
+# Function to calculate total salaries
+def total_salaries(salaries):
+    return sum(salaries)
+
+# Function to search for employee by last name
+def search_employee(names, salaries, search_name):
+    for i in range(len(names)):
+        if names[i].lower() == search_name.lower():
+            print(f"{names[i]}: ${salaries[i]}")
+            return
+    print("Employee Not Found")
+
+# Display employees in normal and reverse order
+print("Employee Names and Salaries:")
+display_employees(employee_names, salaries)
+
+print("\nEmployee Names in Reverse Order:")
+display_employees_reverse(employee_names, salaries)
+
+# Display employee with highest salary
+highest_salary(employee_names, salaries)
+
+# Display total of all salaries
+print(f"\nTotal of all salaries: ${total_salaries(salaries)}")
+
+# Search for employee names
+while True:
+    search_name = input("Enter an employee last name to search (or type 'exit' to stop): ")
+    if search_name.lower() == "exit":
+        break
+    search_employee(employee_names, salaries, search_name)

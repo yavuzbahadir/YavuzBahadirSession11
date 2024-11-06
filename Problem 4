@@ -1,0 +1,37 @@
+# Assuming player_data.txt contains two items on each line: last name and batting average
+# Example file content:
+# Smith 0.267
+# Johnson 0.300
+# ...
+
+# Load data from a file
+with open("player_data.txt", "r") as file:
+    player_names = []
+    batting_averages = []
+    for line in file:
+        name, average = line.split()
+        player_names.append(name)
+        batting_averages.append(float(average))
+
+# Function to display all players and averages
+def display_players(names, averages):
+    for name, average in zip(names, averages):
+        print(f"{name}: {average}")
+
+# Function to search for a player by last name
+def search_player(names, averages, search_name):
+    for i in range(len(names)):
+        if names[i].lower() == search_name.lower():
+            print(f"{names[i]}: {averages[i]}")
+            return
+    print("Name not found")
+
+# Display players
+display_players(player_names, batting_averages)
+
+# Search for players
+while True:
+    search_name = input("Enter a last name to search (or type 'exit' to stop): ")
+    if search_name.lower() == "exit":
+        break
+    search_player(player_names, batting_averages, search_name)
